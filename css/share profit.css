@@ -1,0 +1,78 @@
+.friend-show{
+	background-color:#20a1ff;
+	padding-top: 5%;
+	padding-bottom: 3%;
+	text-align: center;
+	position: relative;
+}
+.friend-show p{
+	color: #b1daff;
+	font-size: 1.2em;
+	padding-bottom:3%;
+}
+.extract-money{
+	color: white !important;
+	font-size:4em !important;
+	padding-bottom:5% !important;
+}
+.share-profit{
+	color: white !important;
+	font-size:2em !important;
+}
+.lj-profit{
+	padding-bottom:2% !important;
+}
+.friend-show img{
+	position: absolute;
+	top: 10%;
+	right: 0;
+	cursor: pointer;
+}
+.porfit-div{
+	background-color: white;
+	text-align: center;
+	padding:5% 0;
+}
+.porfit-div div p{
+	font-size:1.1em;
+	font-weight:200 ;
+}
+.porfit-div div h3{
+	font-weight:400 ;
+}
+.porfit-div div:first-of-type{
+	border-right:1px solid #dddddd;;
+}
+button{
+	width: 90%;
+	margin-left: 5%;
+	border: none;
+	background-color: #dddddd;
+	color: #999bae;
+	font-size: 1.3em;
+	padding: 2% 0;
+	font-weight:200 ;
+	margin-top: 5%;
+	margin-bottom: 3%;
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.friend-show{
+		padding-top:15%;
+	}
+	.friend-show p{
+		padding-bottom:8%;
+	}
+	.extract-money{
+		padding-bottom:15% !important;
+	}
+	.friend-show img{
+		width: 25%;
+	}
+	.porfit-div{
+		padding:8% 0;
+	}
+	button{
+		margin-top:8%;
+		padding:4% 0;
+	}
+}

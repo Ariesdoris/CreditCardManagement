@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/safe withdraw.css" />
+	</head>
+	<body>
+		<!--弹出框-->
+		<div id="popover" class="mui-popover">
+	      <ul class="mui-table-view">
+	        <li class="mui-table-view-cell title"><a>三步提现</a></li>
+	        <li class="mui-table-view-cell marked"><a>开启安全提现！第一步，添加信用卡</a></li>
+	        <li class="mui-table-view-cell twice mui-row">
+	          <div class="no mui-col-xs-6">取消</div>  <div class="sure  mui-col-xs-6">立即添加</div>
+	        </li>
+	      </ul>
+	    </div>
+	    
+	    <!--第二个弹出框-->
+	    <div id="savings" class="mui-popover">
+	      <ul class="mui-table-view">
+	        <li class="mui-table-view-cell title"><a>最后一步</a></li>
+	        <li class="mui-table-view-cell marked"><a>绑定收款储蓄卡，即可提现！</a></li>
+	        <li class="mui-table-view-cell twice mui-row">
+	          <div class="no mui-col-xs-6">取消</div>  <div class="sure  mui-col-xs-6">立即添加</div>
+	        </li>
+	      </ul>
+	    </div>
+	    
+	    
+	    <!--头部-->
+	    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">安全提现，就用守财鹿</h1>
+		</header>
+		
+	    <!--内容-->
+	    <div class="big-div">
+			<div class="content-div">
+				<ul>
+			        <li class="li-border">提现卡<a href="withdraw credit.html">添加信用卡<span class="mui-icon mui-icon-arrowright"></span></a> </li>
+			        <li>到账卡<a href="account deposit.html">添加储蓄卡<span class="mui-icon mui-icon-arrowright"></span> </a></li>
+			      </ul>
+			</div>
+			<div class="mui-input-row input-div input-margin">
+		        <label>提现金额(元)</label>
+		    	<input type="text" class=" text-input" placeholder="0.00">
+			</div>
+			<div class="mui-input-row input-div nop-input">
+		        <label>通道 <span>暂无费率通道</span></label>
+			</div>
+			<div class="mui-input-row input-div input-margin nop-input">
+		        <a href="#picture" class="chose-a">
+		        <label>到账时间 <span class="arrows-span"><b>实时到账，服务费+2.00</b>&nbsp;&nbsp;></span></label></a>
+			</div>
+			<div class="mui-input-row input-div nop-input">
+		        <label>优惠券&nbsp;&nbsp;<img src="../images/yhq.png" /> <span>暂无优惠券</span></label>
+			</div>
+			<div class="mui-input-row input-div nop-input">
+		        <label> 
+		        	<p>费用合计：￥</p>
+		        	<p>实付金额：<span>￥</span> </p>
+		        </label>
+			</div>
+			<button type="button" class="mui-btn  mui-icon mui-icon-locked btn-css">&nbsp;&nbsp;添加信用卡</button>
+			<img src="../images/move-my.png" class="move-my"/>
+	    </div>
+		
+		<!--底部弹出框（到账时间选择）-->
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="money">实时到账<br />
+						一般10分钟内到账，服务费+2.00</a>
+				</li>
+				<li class="mui-table-view-cell nomoney">
+					<a>24小时内到账<br />
+						明天23:59前到账</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init()
+		mui('#popover').popover('toggle',document.getElementById("openPopover"));
+      	$(function(){
+      		
+      		var navHeight=$("#header").height();//获取导航栏高度
+      		$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+      		
+      		
+      		//点击立即添加，跳转绑定信用卡界面
+          	$("#popover .sure").click(function(){
+				window.location.href="withdraw credit.html"
+			})
+          	//点击取消，留在本页面
+          	$(".no").click(function(){
+          		mui('.mui-popover').popover('hide');
+          	})
+          	//点击选择到账时间
+      		$(".chose-a").click(function(){
+	      		mui('#picture').popover('show');
+	      	})
+	      	$(".money").click(function(){
+				mui('#picture').popover('hide');
+				$(".chose-a b").text("实时到账，服务费+2.00");
+			})
+	      	$(".nomoney").click(function(){
+	      		mui('#picture').popover('hide');
+	      		$(".chose-a b").text("24小时内到账")
+	      	})
+	      	
+	      	//填完信息跳转页面
+	      	$("button").click(function(){
+	      		location.href="withdraw credit.html"
+	      	})
+	      	
+	      	//点击图片跳转个人中心
+	      	$(".move-my").click(function(){
+	      		location.href="../personal center/personal center.html"
+	      	})
+      })
+	</script>
+</html>

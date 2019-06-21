@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/withdraw credit.css" />
+	</head>
+	<body>
+		<!--头部-->
+	    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">添加储蓄卡</h1>
+		</header>
+		<!--内容-->
+		<div class="big-div">
+			<div class="hint-div">
+				<p>为了保证您资金安全，暂时只能添加一张储蓄卡收款。<span class="mui-icon mui-icon-closeempty"></span></p>	
+			</div>
+			<form class="mui-input-group">
+			    <div class="mui-input-row input-div">
+			        <label>本人姓名</label>
+			    	<input type="text" class=" text-input" placeholder="请输入本人真实姓名">
+				</div>
+				<div class="mui-input-row input-div">
+			        <label>身份证号</label>
+			    	<input type="text" class=" text-input" placeholder="请输入您的身份证号">
+				</div>
+				<div class="placholder-div">
+					<p>请添加本人的储蓄卡</p>
+				</div>
+				<div class="mui-input-row input-div">
+			        <label>储蓄卡号</label>
+			    	<input type="text" class=" text-input" placeholder="请输卡号自动识别">
+				</div>
+				<div class="mui-input-row input-div no-input">
+			        <label>开户银行<a href="recognition card2.html">输入卡号自动识别</a><span class="mui-icon mui-icon-arrowright"></span></label>
+				</div>
+				<div class="mui-input-row input-div input-margin">
+			        <label>预留手机号</label>
+			    	<input type="text" class=" text-input " placeholder="此卡预留手机号">
+				</div>
+			</form>
+			<div class="btn-div">
+				<button type="button" class="mui-btn  mui-icon btn-css">绑定收款卡</button>
+				<p><span class="mui-icon mui-icon-locked"></span>信息已安全加密，仅用于银行验证</p>
+			</div>
+			
+			<!--弹出框-->
+			<div id="popover" class="mui-popover">
+		      <ul class="mui-table-view">
+		        <li class="mui-table-view-cell title"><a>信用卡额度说明</a></li>
+		        <li class="mui-table-view-cell marked"><a>为了更加真实的反应您的信用卡情况，请填写真实的信用额度。该额度不影响守财鹿每月提现额度。</a></li>
+		        <li class="mui-table-view-cell twice mui-row">
+		          <div class="sure mui-col-xs-12">知道了</div>
+		        </li>
+		      </ul>
+		    </div>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$(function(){
+				var navHeight=$("#header").height();//获取导航栏高度
+      			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+      		
+				
+				//点击X，关闭提示
+				$(".hint-div span").click(function(){
+					$(".hint-div").css("display","none")
+				})
+			})
+			
+		</script>
+	</body>
+</html>

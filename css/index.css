@@ -1,0 +1,100 @@
+.mui-content{
+	background-color: white;
+}
+.big-div{
+	padding:10% 0;
+}
+.mui-col-xs-6{
+	padding:0  10%;
+	position: relative;
+}
+.mui-col-xs-6 img{
+	float: left;
+	vertical-align: middle;
+}
+.main-title{
+	margin-top:3%;
+}
+.main-title p{
+	font-size:1.7em;
+	font-weight:500;
+	margin-bottom: 0;
+}
+.main-title a{
+	color: #000000;
+}
+.main-title span{
+	display: inline-block;
+	margin-top: 2%;
+	color:#c0c0c0;
+	font-size:0.5em;
+}
+.div-border{
+	border-left: 1px solid #CCCCCC;
+}
+.div-border p{
+	margin-top: 5%;
+}
+.mui-grid-view.mui-grid-9{
+	background-color: white;
+}
+.small-title{
+	color: #000000;
+	font-size: 1.1em;
+}
+.title-distance{
+	margin-top: 10%;
+}
+.div-distance{
+	margin-top: 5% !important;
+}
+.move-pic1{
+	position: absolute;
+	top: -60%;
+	right: -50%;
+}
+.mui-table-view.mui-grid-view .mui-table-view-cell{
+	border: none;
+}
+.choiceness-div{
+	padding:5%;
+	margin-top: 2%;
+}
+.choiceness-div p{
+	font-size: 1.2em;
+	margin: 0;
+	color: black;
+	margin-left:2%;
+	border-left:5px solid #347fff ;
+	text-indent:0.4em;
+}
+.content-div{
+	padding-bottom:10%;
+}
+@media only screen and (max-width:640px) {
+	.mui-col-xs-6 img{
+		width:30%;
+	}
+	.main-title p{
+		font-size:1.2em;
+	}
+	.main-title span{
+		position: absolute;
+		top: 45%;
+		left:33%;
+		transform: scale(0.8);
+	}
+	.move-span{
+		top:50% !important;
+	}
+	.small-title{
+		color: #000000;
+		font-size: 1em;
+	}
+}
+@media only screen and (min-width: 640px)  {
+	.choiceness-div{
+		padding:2%;
+		margin-top: 2%;
+	}
+}

@@ -1,0 +1,111 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: white;
+}
+.question-div{
+	margin: 2%;
+}
+.question-p{
+	padding:2%;
+	padding-top: 0;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	color: black;
+	font-weight:200;
+	border-bottom: 1px solid #DDDDDD;
+}
+.answer-div{
+	background-color: #f8f9fc;
+}
+.answer-div p{
+	line-height:2em;
+	letter-spacing:2px;
+	padding:2%;
+	font-size: 1em;
+	font-weight: 200;
+}
+.triangle-div{
+	margin:1% 5%;
+	width: 0;
+    height: 0;
+    border-width: 0 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent #f8f9fc;
+}
+.answer-all-div{
+	display: none;
+}
+.contact-us-div{
+	overflow: hidden;
+}
+.contact-us-div span{
+	display: inline-block;
+	padding-left:2%;
+	color: #c1bfbf;
+	line-height: 35px;
+	font-size:0.9em;
+}
+.contact-us-div a{
+	width: 40%;
+	text-align: right;
+	display: inline-block;
+	float: right;
+	font-size: 1em;
+	font-weight: 200;
+}
+.icon-span{
+	font-size:2em !important;
+	color: #68adec !important;
+	vertical-align: middle;
+	font-weight:400;
+}
+/*提示框*/
+#popover{
+	background-color: white;
+	width: 80%;
+	position: fixed;
+	top: 35%;
+	left: 10%;
+	text-align: center;
+}
+.mui-popover .mui-table-view{
+	border-radius:0 ;
+}
+.mui-table-view-cell:after{
+	background-color:transparent;
+}
+.title{
+	font-size: 1em;
+	margin-top:4%;
+	font-weight:400;
+}
+.marked{
+	color: #9d9d9d;
+	font-size:0.8em;
+	margin:1% 0 5% 0;
+}
+.twice{
+	padding: 0;
+}
+.sure{
+	padding:5% 0;
+	border-top: 1px solid #ccc;
+	color: #34a8ff;
+}
+.mui-table-view-cell>a:not(.mui-btn){
+	white-space: normal;
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.answer-div p{
+		padding: 5%;
+	}
+	.question-p{
+		padding:4% 2%;
+	}
+	.contact-us-div{
+		padding:5% 0;
+	}
+}

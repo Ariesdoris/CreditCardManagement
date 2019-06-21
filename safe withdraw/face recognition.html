@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/face recognition.css" />
+	</head>
+	<body>
+		<!--头部-->
+	    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">开通支付账户</h1>
+		</header>
+		
+		<div class="big-div">
+			<form class="mui-input-group form-margin">
+			    <div class="mui-input-row">
+			        <label>身份证号</label>
+			    	<input type="text"   value="">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>身份证到期日</label>
+			   	 	<input type="text" placeholder="根据身份证照片识别">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>姓名</label>
+			    	<input type="text" value="">
+			    </div>
+			    <div class="mui-input-row input-div no-input">
+			        <label>职业<a></a><span class="mui-icon mui-icon-arrowright"></span></label>
+				</div>
+				<div class="mui-input-row input-div no-input">
+			       <label>
+			      		<a class="agreement-a">《易极付服务协议》</a><a class="agreement-a">《快捷支付服务协议》</a>
+			       </label>
+				</div>
+			</form>
+			<div class="btn-div">
+				<button type="button" class="mui-btn  mui-icon btn-css">同意协议并开通</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/public-js.js" ></script>
+	<script type="text/javascript">
+		mui.init()
+		$(function(){
+			var navHeight=$("#header").height();//获取导航栏高度
+  			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+			
+			affirmbtn("open success.html")
+		})
+		
+	</script>
+</html>

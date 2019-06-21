@@ -1,0 +1,35 @@
+.return-a{
+	color: black;
+}
+.btn-div{
+	margin-top: 2%;
+}
+.btn-css{
+	width: 90%;
+	padding:2% 0;
+	margin-left: 5%;
+	font-size: 1.2em !important;
+	font-weight: 200;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	background-color: #cccccc;
+	color: white;
+}
+.no-input label{
+	width: 100%;
+}
+.no-input a{
+	width: 69%;
+	color: black;
+	display: inline-block;
+	text-align: center;
+}
+.no-input span{
+	float: right;
+}
+.agreement-a{
+	width: auto !important;
+	text-align: center;
+	text-align: left !important;
+	color: #1f84e1 !important;
+}

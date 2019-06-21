@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/weui.min.css" />
+		<link rel="stylesheet" href="../css/jquery-weui.css" />
+		<link rel="stylesheet" href="../css/success card.css" />
+	</head>
+	<body>
+		<!--头部-->
+	    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">开户成功</h1>
+		</header>
+		
+		<div class="big-div">
+			<div class="weui-msg">
+				<div class="weui-msg-content">
+					<div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+			      	<div class="weui-msg__text-area">
+			        	<h2 class="weui-msg__title">开户成功</h2>
+			      	</div>
+				</div>
+		      	<div class="weui-msg__opr-area weui-msg-btn">
+			        <p class="weui-btn-area">
+			          <a href="safe withdraw.html" class="weui-btn weui-btn_primary">返回</a>
+			        </p>
+		      </div>
+		    </div>
+		</div>
+	    
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$(function(){
+				var navHeight=$("#header").height();//获取导航栏高度
+      			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+			})
+		</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/service fulfillment.css" />
+	</head>
+	<body>
+		<!--头部-->
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">中国银联</h1>
+		</header>
+		
+		<!--内容-->
+		<div class="big-div">
+			<div class="service-title">
+				业务开通
+			</div>
+			<form class="mui-input-group form-margin">
+			    <div class="mui-input-row">
+			        <label>招商银行</label>
+			    	<input type="text"   value="信用卡 卡号">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>CVN2</label>
+			   	 	<input type="text" placeholder="卡背面末三位">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>有效期</label>
+			    	<input type="text" placeholder="示例：09/15，输入0915">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>手机号</label>
+			    	<input type="text" placeholder="请输入手机号">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>验证码</label>
+			    	<input type="text" placeholder="短信验证码" class="verification-input">
+			    	<span class="verification-span">免费获取</span>
+			    </div>
+			    <div class="mui-input-row">
+			        <label>证件类型</label>
+			    <input type="text" value="身份证">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>证件号</label>
+			    <input type="text" placeholder="请输入身份证号">
+			    </div>
+			    <div class="mui-input-row">
+			        <label>姓名</label>
+			    <input type="text" placeholder="请输入您的姓名">
+			    </div>
+			    <div class="btn-div">
+					<button type="button" class="mui-btn  mui-icon btn-css">确认开通</button>
+				</div>
+			</form>
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/public-js.js" ></script>
+	<script type="text/javascript">
+		mui.init()
+		$(function(){
+			var navHeight=$("#header").height();//获取导航栏高度
+  			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+  			
+			affirmbtn("success card.html")
+		})
+		
+	</script>
+</html>

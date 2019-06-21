@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/share profit.css" />
+	</head>
+	<body>
+		<div class="big-div">
+			<div class="friend-show">
+				<p class="name">当前可提金额（元）</p>
+				<p class="extract-money">0</p>
+				<p class="name lj-profit">累计分润（元）</p>
+				<p class="share-profit">0</p>
+				<img src="../images/sp.png" class="detail-pic"/>
+			</div>
+			<div class="porfit-div mui-row">
+				<div class="mui-col-xs-6">
+					<p>新增分润（元）</p>
+					<h3>0</h3>
+				</div>
+				<div class="mui-col-xs-6">
+					<p>昨日分润（元）</p>
+					<h3>0</h3>
+				</div>
+			</div>
+			<button>提取</button>
+	    </div>
+		
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$(function(){
+				//点击查看明细图片跳转
+				$(".detail-pic").click(function(){
+					location.href=""
+				})
+			})
+		</script>
+	</body>
+</html>

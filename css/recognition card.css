@@ -1,0 +1,27 @@
+.management-title{
+	background-color: white;
+	font-size: 1.2em;
+	padding: 3% 0;
+	text-align: center;
+	color: #737980;
+	cursor: pointer;
+}
+.border-div{
+	border-right:1px solid #CCCCCC ;
+}
+.progress-div{
+	height:2px;
+	background-color:#1f84e1 ;
+}
+.active{
+	color:#1f84e1 ;
+}
+.card-content{
+	background-color: white;
+	display: none;
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.management-title{
+		padding: 5% 0;
+	}
+}

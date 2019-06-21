@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/credit.css" />
+	</head>
+	<body>
+		<form class="mui-input-group">
+		    <div class="mui-input-row input-div">
+		        <label>储蓄卡号</label>
+		    	<input type="text" class=" text-input" placeholder="请输入本人储蓄卡号">
+			</div>
+			<div class="ul-div"></div>
+			<ul>
+				<li>开户银行<a href="recognition card2.html">输入卡号自动识别</a><span class="mui-icon mui-icon-arrowright"></span></li>
+			</ul>
+	        <div class="mui-input-row input-div">
+		        <label>持卡人</label>
+		    	<input type="text" class=" text-input" placeholder="请输入持卡人姓名">
+			</div>
+			<div class="mui-input-row input-div">
+		        <label>身份证号码</label>
+		    	<input type="text" class=" text-input" placeholder="请输入身份证号码">
+			</div>
+			<div class="mui-input-row input-div">
+		        <label>预留手机</label>
+		    	<input type="text" class=" text-input " placeholder="请输入银行卡预留手机号">
+			</div>
+		</form>
+		<button type="button" class="mui-btn mui-btn-primary mui-icon btn-css">绑定付款储蓄卡</button>
+		<p><span class="mui-icon mui-icon-locked"></span>信息已安全加密，仅用于银行验证</p>
+		
+		
+		<!--弹出框-->
+		<div id="popover" class="mui-popover">
+	      <ul class="mui-table-view">
+	        <li class="mui-table-view-cell title"><a>信用卡额度说明</a></li>
+	        <li class="mui-table-view-cell marked"><a>为了更加真实的反应您的信用卡情况，请填写真实的信用额度。该额度不影响守财鹿每月提现额度。</a></li>
+	        <li class="mui-table-view-cell twice mui-row">
+	          <div class="sure mui-col-xs-12">知道了</div>
+	        </li>
+	      </ul>
+	    </div>
+		<script type="text/javascript" src="j../s/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$(function(){
+				$(".solution-span").click(function(){
+					mui('.mui-popover').popover('show');
+				})
+				$(".sure").click(function(){
+              		mui('.mui-popover').popover('hide');
+              	})
+			})
+			
+		</script>
+	</body>
+</html>

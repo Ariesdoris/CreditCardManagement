@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/card management.css" />
+		<link rel="stylesheet" href="../creat card/trading record.css" />
+	</head>
+	<body>
+		<div class="big-div">
+			<div class="head-div mui-row">
+				<div class="management-title mui-col-xs-6  active">
+					<div class="management-small-title border-div">提现记录</div>
+				</div>
+				<div class="management-title mui-col-xs-6">
+					<div class="management-small-title">还款记录</div>
+				</div>
+			</div>
+			<div class="mui-col-xs-6 progress-div"></div>
+			
+			<!--提现记录-->
+			<div class="card-content">
+				<div class="no-record">
+					<p>还没有交易记录哦~</p>
+					<button type="button" class="mui-btn mui-btn-primary record-btn withdraw-btn">去提现</button>
+				</div>
+			</div>
+			
+			<!--还款记录-->
+			<div class="card-content">
+				<div class="no-record">
+					<p>还没有交易记录哦~</p>
+					<button type="button" class="mui-btn mui-btn-primary record-btn repayment-btn">去还款</button>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			$(function(){
+				//点击切换div
+				$(".card-content").eq(0).show()
+				$(".management-title").click(function(){
+					$(this).addClass("active").siblings().removeClass("active");
+					var $index=$(this).index();
+					if($index==1){
+						$(".progress-div").css("margin-left","50%");
+						$(".card-content").eq(1).show();
+						$(".card-content").eq(0).hide()
+					}
+					else{
+						$(".progress-div").css("margin-left","0")
+						$(".card-content").eq(0).show();
+						$(".card-content").eq(1).hide()
+					}
+				})
+				
+				//点击提现or还款按钮，跳转页面
+				$(".withdraw-btn").click(function(){
+					location.href="../safe withdraw/safe withdraw.html"
+				})
+				$(".repayment-btn").click(function(){
+					location.href="../repayment/repayment.html"
+				})
+			})
+		</script>
+	</body>
+</html>

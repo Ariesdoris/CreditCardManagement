@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/my friend.css" />
+	</head>
+	<body>
+		<div class="big-div">
+			<div class="friend-show">
+				<p class="name">我的鹿友（实名）</p>
+				<p><span>0</span> 人</p>
+				<p class="time-p"></p>
+			</div>
+	    </div>
+		
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$(function(){
+				//时间
+				var date =new Date();
+				var year=date.getFullYear();
+				var month=date.getMonth()+1;
+				var day=date.getDate()
+				$(".time-p").text(year+"-"+month+"-"+day)
+			})
+		</script>
+	</body>
+</html>

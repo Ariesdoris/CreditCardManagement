@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/repayment.css" />
+	</head>
+
+	<body>
+		<!--弹出框-->
+		<div id="popover" class="mui-popover">
+	      <ul class="mui-table-view">
+	        <li class="mui-table-view-cell title"><a>三步还款</a></li>
+	        <li class="mui-table-view-cell marked"><a>开启快捷还款！第一步，添加需要还款的信用卡</a></li>
+	        <li class="mui-table-view-cell twice mui-row">
+	          <div class="no mui-col-xs-6">取消</div>  <div class="sure  mui-col-xs-6">立即添加</div>
+	        </li>
+	      </ul>
+	    </div>
+	    <!--内容-->
+	    <div class="big-div">
+			<div class="content-div">
+				<ul>
+			        <li class="li-border">待还款信用卡<a href="credit.html">添加待还款信用卡<span class="mui-icon mui-icon-arrowright"></span></a> </li>
+			        <li>付款储蓄卡<a href="deposit card.html">添加付款储蓄卡<span class="mui-icon mui-icon-arrowright"></span> </a></li>
+			      </ul>
+			</div>
+			<div class="mui-input-row input-div">
+		        <label>还款金额元</label>
+		    	<input type="text" class=" text-input" placeholder="请输入本次还款金额">
+		    	<span class="yuan-span">元</span>
+			</div>
+			<button type="button" class="mui-btn mui-btn-primary mui-icon mui-icon-locked btn-css">&nbsp;&nbsp;添加信用卡</button>
+			<a class="subscribe-a">预约还款</a>
+			<img src="../images/re_02.png" class="return-pic"/>
+			
+	    </div>
+		
+		
+		
+		
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
+              $(function(){
+              	//点击立即添加，跳转绑定信用卡界面
+              	$(".sure").click(function(){
+					window.location.href="credit.html"
+				})
+              	//点击取消，留在本页面
+              	$(".no").click(function(){
+              		mui('.mui-popover').popover('hide');
+              	})
+              	//填完数据跳转
+              	$("button").click(function(){
+	      			location.href="credit.html"
+	      		})
+              	//点击图片跳转个人中心
+              	$(".return-pic").click(function(){
+					location.href="../personal center/personal center.html"
+				})
+            })
+			
+		</script>
+	</body>
+
+</html>

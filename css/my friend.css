@@ -1,0 +1,21 @@
+.friend-show{
+	background-color:#1f84e1;
+	padding-top: 5%;
+	text-align: center;
+}
+.friend-show p{
+	color: white;
+	font-size: 1.2em;
+	padding-bottom:3%;
+}
+.friend-show p span{
+	font-size:3em;
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.friend-show{
+		padding-top:10%;
+	}
+	.friend-show p{
+		padding-bottom:8%;
+	}
+}

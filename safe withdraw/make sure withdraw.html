@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/make sure withdraw.css" />
+	</head>
+	<body>
+		<!--头部-->
+	    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">确认提现</h1>
+		</header>
+		
+		<div class="big-div">
+			<div class="service-content">
+				<p>实付金额</p>
+				<p>￥<span></span> </p>
+			</div>
+			<form class="mui-input-group form-margin">
+			    <div class="mui-input-row">
+			        <label>提现银行卡</label>
+			    	<input type="text"   value="">
+			    </div>
+			    <div class="mui-input-row form-margin">
+			        <label>到账银行卡</label>
+			   	 	<input type="text" placeholder="根据身份证照片识别">
+			    </div>
+			    <div class="mui-input-row phone-input">
+			        <label>手机号码</label>
+			    	<input type="text" value="">
+			    </div>
+				<div class="mui-input-row">
+			        <label>短信验证码</label>
+			    	<input type="text" placeholder="请输入验证码" class="verification-input">
+			    	<button type="button" class="mui-btn mui-btn-primary verification-btn">发送验证码</button>
+			    </div>
+			</form>
+			<div class="btn-div">
+				<button type="button" class="mui-btn  mui-icon btn-css">确认提现</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/public-js.js" ></script>
+	<script type="text/javascript">
+		mui.init()
+		$(function(){
+			var navHeight=$("#header").height();//获取导航栏高度
+  			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+			
+			affirmbtn("open success.html")
+		})
+		
+	</script>
+</html>

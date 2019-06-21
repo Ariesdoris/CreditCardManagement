@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/personal account.css" />
+	</head>
+	<body>
+		<div class="big-div">
+			<div class="account-title">
+				<p>守财鹿账户</p>
+			</div>
+			<ul class="mui-table-view account-ul">
+				<li class="mui-table-view-cell">
+			    	手机号
+			    	<a class="change-phone-a">修改</a><strong>222</strong>
+			    </li>
+			    <li class="mui-table-view-cell">
+			    	姓名
+			    </li>
+			    <li class="mui-table-view-cell">
+			    	身份证
+			    </li>
+			    <li class="mui-table-view-cell">
+			    	用户等级
+			    	<b>普通用户<span class="mui-icon mui-icon-arrowright"></span></b>
+			    </li>
+			</ul>
+			<div class="account-title">
+				<p>实名账户</p>
+			</div>
+			<ul class="mui-table-view account-ul">
+			    <li class="mui-table-view-cell">
+			    	账户状态
+			    	<b class="real-name-b">未实名<span class="mui-icon mui-icon-arrowright"></span></b>
+			    </li>
+			</ul>
+			<button>退出登录</button>
+		</div>
+		
+		
+		<!--弹出框-->
+		<div id="popover" class="mui-popover change-phone">
+	      <ul class="mui-table-view popover-ul">
+	        <li class="mui-table-view-cell title"><a>更换手机号</a></li>
+	        <li class="mui-table-view-cell marked"><a>您当前手机号为<span>123</span>更改后的新手机将作为新的登录账号</a></li>
+	        <li class="mui-table-view-cell twice mui-row">
+	          <div class="no mui-col-xs-6">取消</div>  <div class="sure  mui-col-xs-6">确认</div>
+	        </li>
+	      </ul>
+	    </div>
+		
+		<div id="popover" class="mui-popover real-name">
+	      <ul class="mui-table-view popover-ul">
+	        <li class="mui-table-view-cell title"><a>实名认证提示</a></li>
+	        <li class="mui-table-view-cell marked"><a>您还未绑定信用卡，请先绑定信用卡再实名</a></li>
+	        <li class="mui-table-view-cell twice mui-row">
+	          <div class="no mui-col-xs-6">取消</div>  <div class="sure  mui-col-xs-6">确认</div>
+	        </li>
+	      </ul>
+	    </div>
+		
+		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$(function(){
+				//点击遮幕不会关闭弹出框
+				window.addEventListener('tap', function(e) {  
+				    e.target.className == 'mui-backdrop mui-active' && e.stopPropagation();  
+				},true) 
+				//点击修改弹出更换手机框
+				$(".change-phone-a").click(function(){
+					mui('.change-phone').popover('show');
+				})
+				$(".sure").click(function(){
+					window.location.href=""
+				})
+              	//点击取消，留在本页面
+              	$(".no").click(function(){
+              		mui('.change-phone').popover('hide');
+              	})
+              	
+              	//点击未实名弹出实名提示
+              	$(".real-name-b").click(function(){
+					mui('.real-name').popover('show');
+				})
+				$(".sure").click(function(){
+					window.location.href=""
+				})
+              	//点击取消，留在本页面
+              	$(".no").click(function(){
+              		mui('.real-name').popover('hide');
+              	})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+body{
+	background-color: white;
+}
+.mui-slider {
+	width: 90%;
+	margin: 0 auto;
+	max-height: 200px;
+}
+.choiceness-div{
+	border-top:10px solid #f8f9fb;
+	padding:5%;
+	margin-top: 2%;
+	border-bottom: 1px solid #ccc;
+}
+.choiceness-div p{
+	font-size: 1.5em;
+	font-weight: 200;
+	margin: 0;
+	color: black;
+	margin-left:2%;
+	border-left:5px solid #347fff ;
+	text-indent:1em;
+	line-height: 1.4em;
+}
+@media only screen and (min-width: 640px) {
+	.mui-slider img{
+		height: 200px;
+	}
+	.choiceness-div{
+		padding:2%;
+		margin-top: 2%;
+	}
+}

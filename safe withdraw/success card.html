@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/weui.min.css" />
+		<link rel="stylesheet" href="../css/jquery-weui.css" />
+		<link rel="stylesheet" href="../css/success card.css" />
+	</head>
+	<body>
+		<!--头部-->
+	    <header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">银联验证</h1>
+		</header>
+		
+		<!--弹出框-->
+		<div id="popover" class="mui-popover">
+	      <ul class="mui-table-view">
+	        <li class="mui-table-view-cell title"><a>绑卡成功！</a></li>
+	        	<div class="sure  mui-col-xs-12">确定</div>
+	        </li>
+	      </ul>
+	    </div>
+	    
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-weui.js" ></script>
+		<script type="text/javascript">
+			mui.init()
+			$.showLoading()
+			$(function(){
+				//等待图标
+				$.showLoading()
+				$(".weui-toast_content").text(" ")
+				
+				mui('#popover').popover('show');
+				window.addEventListener('tap', function(e) {  
+				    e.target.className == 'mui-backdrop mui-active' && e.stopPropagation();  
+				},true) 
+				
+				var navHeight=$("#header").height();//获取导航栏高度
+      			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+				
+				//点击确定，跳转页面
+				$(".sure").click(function(){
+					location.href="face recognition.html"
+				})
+			})
+		</script>
+</html>

@@ -1,0 +1,64 @@
+.return-a{
+	color: black;
+}
+.btn-div{
+	margin-top: 2%;
+}
+.btn-css{
+	width: 90%;
+	padding:2% 0;
+	margin-left: 5%;
+	font-size: 1.2em !important;
+	font-weight: 200;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	background-color: #cccccc;
+	color: white;
+}
+.no-input label{
+	width: 100%;
+}
+.no-input a{
+	width: 69%;
+	color: black;
+	display: inline-block;
+	text-align: center;
+}
+.no-input span{
+	float: right;
+}
+.agreement-a{
+	width: auto !important;
+	text-align: center;
+	text-align: left !important;
+	color: #1f84e1 !important;
+}
+.verification-btn{
+	width: 30% !important;
+	float: none !important;
+}
+.verification-input{
+	float: left !important;
+	width:32% !important;
+}
+.service-content{
+	background-color: white;
+	padding: 5% 0;
+	text-align: center;
+}
+.service-content p{
+	color: black;
+	margin-bottom: 5%;
+}
+.service-content p:last-of-type{
+	font-size: 2em;
+}
+.mui-input-group .mui-input-row:after,.mui-input-group:before{
+	background-color: transparent;
+}
+.form-margin{
+	border-top: 1px solid #f1f1f1;
+}
+.phone-input{
+	border-top: 5px solid #f1f1f1;
+}
