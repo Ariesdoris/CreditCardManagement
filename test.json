@@ -1,0 +1,23 @@
+{
+	"code":1,
+	"message":"success",
+	"result":{
+		"creditInfoList":[{
+			"id":null,
+			"user_id":null,
+			"name":"张三",
+			"idcard":null,
+			"credit_card_number":"5006 ***",
+			"credit_card_bank":"招商银行",
+			"credit_limit":null,
+			"cell":"13567",
+			"status":null
+			}],
+		"depositInfoList":[{
+			"id":null,
+			"user_id":null,
+			"deposit_card_number":"6228 **",
+			"deposit_card_bank":"工商银行",
+			"cell":"15727**",
+			"status":null
+		}]}}

@@ -9,10 +9,10 @@
 	</head>
 	<body>
 		<!--头部-->
-	    <header id="header" class="mui-bar mui-bar-nav">
+	    <!--<header id="header" class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
 			<h1 class="mui-title">开通支付账户</h1>
-		</header>
+		</header>-->
 		
 		<div class="big-div">
 			<form class="mui-input-group form-margin">
@@ -44,14 +44,49 @@
 	</body>
 	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
 	<script src="../js/mui.min.js"></script>
-	<script type="text/javascript" src="../js/public-js.js" ></script>
 	<script type="text/javascript">
 		mui.init()
 		$(function(){
 			var navHeight=$("#header").height();//获取导航栏高度
   			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
 			
-			affirmbtn("open success.html")
+			//判断所以input不为空
+			$("input").blur(function(){
+				if ($(this).val().length==0) {
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//全部input填完，跳转页面
+			var inputNum=$("input").length;
+			$(".btn-css").click(function(){
+				var num=0;
+				$("input").each(function(){
+					if(!$(this).parent(".mui-input-row").hasClass("error-input")&&$(this).val().length>0){
+						num++;
+					}
+				})
+				if(num==inputNum){
+					location.href="open success.html"
+				}
+			})
+			//输完信息，按钮变色
+			$("input").on("input propertychange",function(){
+				var mark=true;
+				$("input").each(function(){
+					if($(this).val().length==0){
+						mark=false;
+					}
+				})
+				if(mark){
+					$("button").css("background-color","#007AFF");
+				}
+				else{
+					$("button").css("background-color","#ccc");
+				}
+			})
 		})
 		
 	</script>

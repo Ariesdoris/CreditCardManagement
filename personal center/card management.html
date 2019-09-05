@@ -12,29 +12,50 @@
 			<div class="head-div mui-row">
 				<div class="management-title mui-col-xs-6  active">
 					<div class="management-small-title border-div">信用卡管理</div>
+					<hr />
 				</div>
 				<div class="management-title mui-col-xs-6">
 					<div class="management-small-title">储蓄卡管理</div>
+					<hr />
 				</div>
 			</div>
 			<div class="mui-col-xs-6 progress-div"></div>
 			
 			<!--信用卡界面-->
-			<div class="card-content">
+			<div class="card-center">
 				<a href="../safe withdraw/withdraw credit.html">
-				<div class="add-div">
-					<span class="mui-icon mui-icon-plusempty"></span> 添加信用卡
-				</div>
+					<div class="add-div">
+						<span class="mui-icon mui-icon-plusempty"></span> 添加信用卡
+					</div>
 				</a>
+				<div class="mui-row card-show">
+					<div class="mui-col-xs-2 bank-sign">
+						<img src="../images/bank-pic_03.gif" />
+					</div>
+					<div class="mui-col-xs-8 card-msg-div">
+						<p class="card-name">招商银行</p>
+						<p class="card-number">123456</p>
+					</div>
+					<div class="mui-col-xs-2 remove-card">
+						<span class="mui-icon mui-icon-trash"></span>
+					</div>
+				</div>
 			</div>
 			
 			<!--储蓄卡界面-->
-			<div class="card-content">
-				<a href="../safe withdraw/account deposit.html">
-					<div class="add-div">
-						<span class="mui-icon mui-icon-plusempty"></span> 添加提现储蓄卡
+			<div class="card-center savings-card">
+				<div class="mui-row card-show">
+					<div class="mui-col-xs-2 bank-sign">
+						<img src="../images/bank-pic_03.gif" />
 					</div>
-				</a>
+					<div class="mui-col-xs-8 card-msg-div">
+						<p class="card-name">招商银行</p>
+						<p class="card-number">123456</p>
+					</div>
+					<div class="mui-col-xs-2 remove-card">
+						<a href="../safe withdraw/account deposit.html">更换</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -44,20 +65,19 @@
 			mui.init();
 			$(function(){
 				//点击切换div
-				$(".card-content").eq(0).show()
+				$(".card-center").eq(0).show()
+				$(".management-title").eq(0).find("hr").show()
 				$(".management-title").click(function(){
 					$(this).addClass("active").siblings().removeClass("active");
+					$(this).find("hr").show()
+					$(this).siblings().find("hr").hide()
 					var $index=$(this).index();
-					if($index==1){
-						$(".progress-div").css("margin-left","50%");
-						$(".card-content").eq(1).show();
-						$(".card-content").eq(0).hide()
-					}
-					else{
-						$(".progress-div").css("margin-left","0")
-						$(".card-content").eq(0).show();
-						$(".card-content").eq(1).hide()
-					}
+					$(".card-center").eq($index).show().siblings(".card-center").hide();
+				})
+				
+				//点击垃圾箱
+				$(".remove-card").on("click",function(){
+					
 				})
 			})
 		</script>

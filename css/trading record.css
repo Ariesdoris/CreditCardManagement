@@ -1,0 +1,77 @@
+.management-title{
+	background-color: white;
+	font-size: 1em;
+	padding:2% 0;
+	text-align: center;
+	color: #737980;
+	cursor: pointer;
+}
+.card-content{
+	background-color: white;
+	margin-top:2%;
+	display: none;
+}
+.card-content a{
+	display: block;
+	color: black;
+}
+.no-record{
+	text-align: center;
+	padding-top: 20%;
+	padding-bottom: 5%;
+}
+.no-record p{
+	font-size: 1em;
+	margin-bottom: 5%;
+}
+.record-btn{
+	padding:2% 5%;
+	font-size: 1em;
+	cursor: pointer;
+}
+.management-title{
+	font-size: 1em;
+}
+.management-title hr{
+	width: 80%;
+	height:4px;
+	border-radius:10px ;
+	background-color: #1f84e1;
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	margin: 0;
+	display: none;
+}
+.record-div{
+	padding: 5%;
+	border-bottom:1px solid #dadada ;
+}
+.record-div p{
+	font-size: 1rem;
+}
+.bank-pic img{
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+}
+.bank-name{
+	color: #535353;
+}
+.date{
+	font-size: 1.1rem !important;
+}
+.success-money{
+	color: black;
+}
+.success{
+	color: #0baf02;
+}
+.fail{
+	color: red;
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.record-btn{
+		padding: 3% 8%;
+	}
+}

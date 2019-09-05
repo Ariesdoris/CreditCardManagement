@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/phone register.css" />
+    <link rel="stylesheet" href="css/weui.min.css" />
+    <link rel="stylesheet" href="css/jquery-weui.css" />
+</head>
+<body>
+	<div class="title-div">
+		<img src="images/phone-register.gif" />
+	</div>
+	<form class="mui-input-group">
+	    <div class="mui-input-row">
+	        <label for="phone">本人手机号</label>
+	    	<input type="text" class="mui-input-clear" placeholder="请输入您的手机号码" id="phone">
+	    </div>
+	    <div class="mui-input-row">
+	        <label for="verification">手机验证码</label>
+	    	<input type="text" placeholder="请输入验证码" class="verification-input" id="verification">
+			<button class="verification-span" type="button">获取短信验证码</button>
+	    </div>
+	    <div class="mui-input-row mui-checkbox mui-left check-input">
+			<input name="checkbox" value="agree" type="checkbox">
+			<span>我同意
+				<a>《注册协议》</a><a>《信用卡还款服务条款》</a><a>《信用卡充值提现服务条款》</a>
+			</span>
+	    </div>
+	</form>
+	<button type="button" class="mui-btn mui-btn-primary btn-css">
+		提现
+	</button>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+<script type="text/javascript" src="js/fastclick.js" ></script>
+<script>
+	 $(function() {
+	    FastClick.attach(document.body);
+	  });
+</script>
+<script type="text/javascript" src="js/jquery-weui.js" ></script>
+<script type="text/javascript" charset="utf-8">
+  	mui.init();
+  	$(function(){
+    	//判断所以input不为空
+    	
+    	
+    	$("input[name=checkbox]").attr("disabled","disabled")
+    	
+		$("input").blur(function(){
+			var inpContent=0;
+			if ($(this).val().length==0) {
+				$(this).parent(".mui-input-row").addClass("error-input")
+			}
+			else{
+				$(this).parent(".mui-input-row").removeClass("error-input")
+			}
+			
+			//只有input全部有内容，复选框才可被点击
+			$("input").each(function(){
+				if($(this).val().length>0){
+					inpContent++;
+				}
+			})
+			if(inpContent==inputNum){
+				$("input[name=checkbox]").removeAttr("disabled")
+			}
+		})
+		//手机号正则表达式
+		$("#phone").blur(function(){
+			var $phone=$("#phone").val();
+			var patrm1=/^((\+86)|(86)|(086))?1[3475689][0-9]\d{8}$/;
+			if(!patrm1.test($phone)){
+				$(this).parent(".mui-input-row").addClass("error-input")
+			}
+			else{
+				$(this).parent(".mui-input-row").removeClass("error-input")
+			}
+		})
+		//点击按钮发送验证码
+		$(".verification-span").click(function(){
+			//判断是否输入手机号
+			var $phone=$("#phone").val();
+			if($("#phone").parent(".mui-input-row").hasClass(".mui-input-row")|| $phone.length==0){
+				$.toast("请输入正确手机号","cancel");
+			}
+			else{
+				//调用函数，传手机号给后台
+	//			sendAuthCode();
+				//提示验证码已发送
+				$.toast("已发送",1000);
+				//此时不可再点击发送验证码
+				$(".verification-span").attr("disabled","disabled");
+				//设置1分钟定时器，1分钟后关闭定时器，按钮可点击
+				var num=59;
+				$(".verification-span").text('获取验证码（'+num+')')
+				timer=setInterval(function(){
+					num--;
+					$(".verification-span").text('获取验证码（'+num+')');
+					if(num<1){
+						clearInterval(timer);
+						$(".verification-span").text('获取短信验证码');
+						$(".verification-span").removeAttr("disabled")
+					}
+				},1000)
+			}
+		})
+//		//发送验证码函数
+//			//获取当前网址
+//			var curWwwPath = window.document.location.href;
+//			//获取主机地址之后的目录
+//			var pathName = window.document.location.pathname;
+//			//项目名称
+//			var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 2);
+//			var pos=curWwwPath.indexOf(pathName);
+//			//获取主机地址，如： http://localhost:8083
+//			var localhostPaht=curWwwPath.substring(0,pos);
+//			basePath=localhostPaht+projectName;
+//		function sendAuthCode(){
+//			var data={
+//				phone:$("#phone").val()
+//			}
+//			$.ajax({
+//				type:"POST",
+//				url:basePath+"sms/getVerificationCode",
+//				data:data,
+//				dataType: "json", 
+//				success:function(){
+//					
+//				}
+//			})
+//		}
+//		//判断验证码
+//		$(".verification-input").blur(function(){
+//			$.ajax({
+//				type:"post",
+//				url:basePath+"sms/checkVerificationCode",
+//				data:{phone:$("#phone").val(),authCode:$(".verification-input").val()}
+//				async:true,
+//				dataType: "json", 
+//				success:function(data){
+//					if(data.msg=="success"){
+//						$(this).parent(".mui-input-row").removeClass("error-input")
+//					}
+//					else{
+//						$(this).parent(".mui-input-row").addClass("error-input")
+//					}
+//				}
+//			});
+//		})
+		
+		
+		//全部input填完，跳转页面
+		var inputNum=$("input").length;
+		$(".btn-css").click(function(){
+			var num=0;
+			$("input").each(function(){
+				if(!$(this).parent(".mui-input-row").hasClass("error-input")&&$(this).val().length>0){
+					num++;
+				}
+			})
+			if(num==inputNum && $("input[name=checkbox]").is(":checked")){
+				$("button").css("background-color","#007AFF");
+				location.href="safe withdraw/safe withdraw.html"
+			}
+		})
+  	})
+</script>
+</html>

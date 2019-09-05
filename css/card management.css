@@ -1,37 +1,69 @@
 .management-title{
 	background-color: white;
-	font-size: 1.2em;
+	font-size: 1em;
 	padding:2% 0;
 	text-align: center;
 	color: #737980;
 	cursor: pointer;
 }
+.management-title hr{
+	width: 80%;
+	height:4px;
+	border-radius:10px ;
+	background-color: #1f84e1;
+	position: absolute;
+	bottom: 0;
+	left: 10%;
+	margin: 0;
+	display: none;
+}
 .border-div{
 	border-right:1px solid #CCCCCC ;
-}
-.progress-div{
-	height:2px;
-	background-color:#1f84e1 ;
 }
 .active{
 	color:#1f84e1 ;
 }
 .add-div{
+	margin:5% 0;
+	background-color: white;
 	text-align: center;
 	padding:2% 0;
 	cursor: pointer;
+	color: black;
 }
 .add-div span{
 	font-weight:900 ;
 }
-.card-content{
-	background-color: white;
-	margin-top:2%;
+
+.card-center{
 	display: none;
 }
-.card-content a{
-	display: block;
-	color: black;
+.card-show{
+	width: 90%;
+	margin: 0 auto;
+	background-color: white;
+	border-radius:10px ;
+	padding:5% 4% 4%;
+	margin-bottom: 5%;
+}
+.card-msg-div{
+	padding-left:5% ;
+}
+.card-msg-div p{
+	font-size: 1rem;
+}
+.card-name{
+	color: #000000;
+}
+.remove-card{
+	color: #e0e0e0;
+	padding-top:1rem;
+}
+.remove-card span{
+	cursor: pointer;
+}
+.savings-card{
+	margin-top: 10%;
 }
 @media only screen and (min-width: 100px) and (max-width: 640px) {
 	.management-title{

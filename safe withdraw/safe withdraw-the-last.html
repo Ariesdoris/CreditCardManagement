@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/safe withdraw.css" />
+	</head>
+	<body>
+	    
+	    <!--头部-->
+	    <!--<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
+			<h1 class="mui-title">安全提现，就用守财鹿</h1>
+		</header>-->
+		
+	    <!--内容-->
+	    <div class="big-div">
+			<div class="content-div">
+				<ul>
+			        <li class="li-border">提现卡<span class="mui-icon mui-icon-arrowright skip-span"></span><a class="card-content credit-card" href="withdraw credit.html">银行</a> </li>
+			        <li>到账卡<span class="mui-icon mui-icon-arrowright skip-span"></span><a class="card-content deposit-card" href="account deposit.html">招商</a></li>
+			      </ul>
+			</div>
+			<div class="mui-input-row input-div input-margin">
+		        <label>提现金额(元)</label>
+		    	<input type="text" class=" text-input withdraw-money" placeholder="0.00">
+			</div>
+			<div class="mui-input-row input-div nop-input">
+		        <label>通道 <span class="aisle">暂无费率通道</span></label>
+			</div>
+			<p class="change-aisle">切换通道<span class="mui-icon mui-icon-forward"></span> </p>
+			<div class="mui-input-row input-div input-margin nop-input">
+		        <a href="#picture" class="chose-a">
+		        <label>到账时间 <span class="arrows-span"><b>实时到账，服务费+2.00</b>&nbsp;&nbsp;></span></label></a>
+			</div>
+			<!--<div class="mui-input-row input-div nop-input">
+		        <label>优惠券&nbsp;&nbsp;<img src="../images/yhq.png" /> <span>暂无优惠券</span></label>
+			</div>-->
+			<div class="mui-input-row input-div nop-input">
+		        <label> 
+		        	<p class="pay-money">费用合计：￥ <b></b></p>
+		        	<p class="pay-money">实付金额：<span>￥</span><b class="actually-paid"></b> </p>
+		        </label>
+			</div>
+			<button type="button" class="mui-btn  mui-icon mui-icon-locked btn-css">&nbsp;&nbsp;安全提现</button>
+			<img src="../images/move-my.png" class="move-my"/>
+	    </div>
+		
+		<!--底部弹出框（到账时间选择）-->
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="money">实时到账<br />
+						一般10分钟内到账，服务费+2.00</a>
+				</li>
+				<li class="mui-table-view-cell nomoney">
+					<a>24小时内到账<br />
+						明天23:59前到账</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!--底部弹出框（切换通道选择）-->
+		<div id="aisle" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init()
+      	$(function(){
+      		
+      		var navHeight=$("#header").height();//获取导航栏高度
+      		$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+      		
+      		
+      		//点击立即添加，跳转绑定信用卡界面
+          	$("#popover .sure").click(function(){
+				window.location.href="account deposit.html"
+			})
+          	//点击取消，留在本页面
+          	$(".no").click(function(){
+          		mui('.mui-popover').popover('hide');
+          	})
+          	//点击选择到账时间
+      		$(".chose-a").click(function(){
+	      		mui('#picture').popover('show');
+	      	})
+	      	$(".money").click(function(){
+				mui('#picture').popover('hide');
+				$(".chose-a b").text("实时到账，服务费+2.00");
+				$(".pay-money b").text($(".withdraw-money").val()*(1+rate)+2);
+			})
+	      	$(".nomoney").click(function(){
+	      		mui('#picture').popover('hide');
+	      		$(".chose-a b").text("24小时内到账");
+	      		$(".pay-money b").text($(".withdraw-money").val()*(1+rate));
+	      	})
+	      	
+	      	//点击选择通道
+	      	$(".change-aisle").click(function(){
+	      		mui('#aisle').popover('show');
+	      	})
+	      	$("#aisle ul").on("click",".aisleChoose",function(){
+	      		mui('#aisle').popover('hide');
+	      		//更改通道值
+	      		var content=$(this).find(".aisleName").text();
+	      		$(".aisle").text(content);
+	      		//获取费率
+	      		rate=$(this).find(".aisleRate b").text();
+	      	})
+	      	
+	      	//填完信息跳转页面
+	      	$("button").click(function(){
+	      		location.href="make sure withdraw.html"
+	      	})
+	      	
+	      	//点击图片跳转个人中心
+	      	$(".move-my").click(function(){
+	      		location.href="../personal center/personal center.html"
+	      	})
+	      	//获取银行卡卡号
+	      	$.ajax({
+	      		url:"../test.json",
+	      		dataType:"json",
+	      		type:"GET",
+	      		success:function(data){
+	      			if(data.message=="success"){
+	      				var creditContent=data.result.creditInfoList[0];
+	      				var depositContent=data.result.depositInfoList[0];
+	      				$(".credit-card").text(`${creditContent.credit_card_bank}(${creditContent.credit_card_number})`);
+	      				$(".deposit-card").text(`${depositContent.deposit_card_bank}(${depositContent.deposit_card_number})`)
+	      				//将银行卡赋值，便于通道获取
+	      				 creditMsg=creditContent.credit_card_number;
+	      			}
+	      			else{
+	      				$(".credit-card").text("添加信用卡")
+	      				$(".deposit-card").text("添加储蓄卡")
+	      			}
+	      		}
+	      	})
+	      	//输入提现金额，显示总价
+	      	$(".withdraw-money").keyup(function(){
+	      		var txMoney=$(this).val()*(1+rate);
+	      		if($(".chose-a b").text()=="实时到账，服务费+2.00"){
+	      			txMoney+=2;
+	      		}
+	      		else{
+	      			txMoney=txMoney;
+	      		}
+	      		$(".pay-money b").text(txMoney);
+	      	})
+	      	//获取通道
+	      	$.ajax({
+	      		url:"",
+	      		dataType:"json",
+	      		type:"post",
+	      		data:"{creditCardNo：}"+creditMsg,
+	      		success:function(data){
+	      			if(data.success==true){
+	      				var dataList=data.data;
+	      				for(var i=0;i<dataList.length;i++){
+	      					$("#aisle ul").append(
+	      						`<li class="mui-table-view-cell aisleChoose">
+									<a class="aisleName">${dataList[i].channelName}</a>
+									<a class="aisleRate">通道费率：<b>${dataList[i].chargeRate}</b></a>
+								</li>`
+	      					)
+	      				}
+	      				$(".aisle").text("请选择通道费率");
+	      			}
+	      			else{
+	      				$(".aisle").text("暂无费率通道")
+	      			}
+	      		}
+	      	})
+      })
+	</script>
+</html>

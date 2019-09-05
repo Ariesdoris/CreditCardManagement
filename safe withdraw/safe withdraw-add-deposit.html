@@ -9,18 +9,7 @@
 	</head>
 	<body>
 		<!--弹出框-->
-		<div id="popover" class="mui-popover">
-	      <ul class="mui-table-view">
-	        <li class="mui-table-view-cell title"><a>三步提现</a></li>
-	        <li class="mui-table-view-cell marked"><a>开启安全提现！第一步，添加信用卡</a></li>
-	        <li class="mui-table-view-cell twice mui-row">
-	          <div class="no mui-col-xs-6">取消</div>  <div class="sure  mui-col-xs-6">立即添加</div>
-	        </li>
-	      </ul>
-	    </div>
-	    
-	    <!--第二个弹出框-->
-	    <div id="savings" class="mui-popover">
+	    <div id="popover" class="mui-popover">
 	      <ul class="mui-table-view">
 	        <li class="mui-table-view-cell title"><a>最后一步</a></li>
 	        <li class="mui-table-view-cell marked"><a>绑定收款储蓄卡，即可提现！</a></li>
@@ -41,8 +30,8 @@
 	    <div class="big-div">
 			<div class="content-div">
 				<ul>
-			        <li class="li-border">提现卡<span class="mui-icon mui-icon-arrowright skip-span"></span><a class="credit-card" href="withdraw credit.html">添加信用卡</a> </li>
-			        <li>到账卡<span class="mui-icon mui-icon-arrowright skip-span"></span><a class="deposit-card" href="account deposit.html">添加储蓄卡</a></li>
+			        <li class="li-border">提现卡<span class="mui-icon mui-icon-arrowright skip-span"></span><a class="card-content credit-card" href="withdraw credit.html">银行</a> </li>
+			        <li>到账卡<span class="mui-icon mui-icon-arrowright skip-span"></span> <a href="account deposit.html">添加储蓄卡</a></li>
 			      </ul>
 			</div>
 			<div class="mui-input-row input-div input-margin">
@@ -65,7 +54,7 @@
 		        	<p>实付金额：<span>￥</span> </p>
 		        </label>
 			</div>
-			<button type="button" class="mui-btn  mui-icon mui-icon-locked btn-css">&nbsp;&nbsp;添加信用卡</button>
+			<button type="button" class="mui-btn  mui-icon mui-icon-locked btn-css">&nbsp;&nbsp;绑定储蓄卡</button>
 			<img src="../images/move-my.png" class="move-my"/>
 	    </div>
 		
@@ -96,7 +85,7 @@
       		
       		//点击立即添加，跳转绑定信用卡界面
           	$("#popover .sure").click(function(){
-				window.location.href="withdraw credit.html"
+				window.location.href="account deposit.html"
 			})
           	//点击取消，留在本页面
           	$(".no").click(function(){
@@ -117,12 +106,28 @@
 	      	
 	      	//填完信息跳转页面
 	      	$("button").click(function(){
-	      		location.href="withdraw credit.html"
+	      		location.href="account deposit.html"
 	      	})
 	      	
 	      	//点击图片跳转个人中心
 	      	$(".move-my").click(function(){
 	      		location.href="../personal center/personal center.html"
+	      	})
+	      	
+	      	//获取银行卡卡号
+	      	$.ajax({
+	      		url:"../test.json",
+	      		dataType:"json",
+	      		type:"GET",
+	      		success:function(data){
+	      			if(data.message=="success"){
+	      				var creditContent=data.result.creditInfoList[0];
+	      				$(".credit-card").text(`${creditContent.credit_card_bank}(${creditContent.credit_card_number})`);
+	      			}
+	      			else{
+	      				$(".credit-card").text("添加信用卡")
+	      			}
+	      		}
 	      	})
       })
 	</script>

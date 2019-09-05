@@ -119,6 +119,9 @@
 .nop-input label p span{
 	color:#ee486f ;
 }
+.actually-paid{
+	color:#ee486f !important;
+}
 .btn-css{
 	width: 90%;
 	color: white;
@@ -134,4 +137,17 @@
 	position: fixed;
 	bottom:20%;
 	left: 0;
+}
+.card-content{
+	color: gray;
+}
+.change-aisle{
+	text-align: right;
+	font-size: 1em;
+	margin-top:5%;
+	padding: 0 3%;
+}
+.skip-span{
+	float: right;
+	line-height: 0.9;
 }

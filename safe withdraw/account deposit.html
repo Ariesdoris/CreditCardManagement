@@ -9,10 +9,10 @@
 	</head>
 	<body>
 		<!--头部-->
-	    <header id="header" class="mui-bar mui-bar-nav">
+	    <!--<header id="header" class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
 			<h1 class="mui-title">添加储蓄卡</h1>
-		</header>
+		</header>-->
 		<!--内容-->
 		<div class="big-div">
 			<div class="hint-div">
@@ -25,21 +25,21 @@
 				</div>
 				<div class="mui-input-row input-div">
 			        <label>身份证号</label>
-			    	<input type="text" class=" text-input" placeholder="请输入您的身份证号">
+			    	<input type="text" class=" text-input" placeholder="请输入您的身份证号" id="identityCard">
 				</div>
 				<div class="placholder-div">
 					<p>请添加本人的储蓄卡</p>
 				</div>
 				<div class="mui-input-row input-div">
 			        <label>储蓄卡号</label>
-			    	<input type="text" class=" text-input" placeholder="请输卡号自动识别">
+			    	<input type="text" class=" text-input" placeholder="请输入本人储蓄卡号" id="savingsCard">
 				</div>
 				<div class="mui-input-row input-div no-input">
-			        <label>开户银行<a href="recognition card2.html">输入卡号自动识别</a><span class="mui-icon mui-icon-arrowright"></span></label>
+			        <label>开户银行<a href="recognition card2.html" class="inquire-card">输入卡号自动识别</a><span class="mui-icon mui-icon-arrowright"></span></label>
 				</div>
 				<div class="mui-input-row input-div input-margin">
 			        <label>预留手机号</label>
-			    	<input type="text" class=" text-input " placeholder="此卡预留手机号">
+			    	<input type="text" class=" text-input " placeholder="此卡预留手机号" id="phone">
 				</div>
 			</form>
 			<div class="btn-div">
@@ -59,20 +59,110 @@
 		    </div>
 		</div>
 		
-		<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
-		<script src="../js/mui.min.js"></script>
-		<script type="text/javascript">
-			mui.init()
-			$(function(){
-				var navHeight=$("#header").height();//获取导航栏高度
-      			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
-      		
-				
-				//点击X，关闭提示
-				$(".hint-div span").click(function(){
-					$(".hint-div").css("display","none")
+	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init()
+		$(function(){
+			var navHeight=$("#header").height();//获取导航栏高度
+  			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
+  		
+			
+			//点击X，关闭提示
+			$(".hint-div span").click(function(){
+				$(".hint-div").css("display","none")
+			})
+			
+			//获取页面input值
+			var inputNum=$("input").length;
+		
+			//判断所以input不为空
+			$("input").blur(function(){
+				if ($(this).val().length==0) {
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//手机号正则表达式
+			$("#phone").blur(function(){
+				var $phone=$("#phone").val();
+				var patrm1=/^((\+86)|(86)|(086))?1[3475689][0-9]\d{8}$/;
+				if(!patrm1.test($phone)){
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//身份证正则表达
+			$("#identityCard").blur(function(){
+				var identityCard=$("#identityCard").val();
+				var patrm1=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+				if(!patrm1.test(identityCard)){
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//全部input填完，跳转页面{
+			var inputNum=$("input").length;
+			$(".btn-css").click(function(){
+				var num=0;
+				$("input").each(function(){
+					if(!$(this).parent(".mui-input-row").hasClass("error-input")&&$(this).val().length>0){
+						num++;
+					}
+				})
+				if(num==inputNum){
+					location.href="safe withdraw-the-last.html"
+				}
+			})
+			//输完信息，按钮变色
+			$("input").on("input propertychange",function(){
+				var mark=true;
+				$("input").each(function(){
+					if($(this).val().length==0){
+						mark=false;
+					}
+				})
+				if(mark){
+					$("button").css("background-color","#007AFF");
+				}
+				else{
+					$("button").css("background-color","#ccc");
+				}
+			})
+			
+			//根据卡号查询银行
+			$("#creditCard").blur(function(){
+				var card=$("#creditCard").val();
+				$.ajax({
+					type:"get",
+					url:"http://localhost:8888/creditCardMana/getCardInfo？cardNumber="+card,
+					dataType:"json",
+					success:function(data){
+						if(data.message=="查询成功"){
+							if(data.data.debit_credit_flag!=2){
+								$(".inquire-card").text(`${data.data.issuer_name}`);
+								$("#savingsCard").parent(".mui-input-row").removeClass("error-input")
+							}
+							else{
+								$(".inquire-card").text("您输入的是信用卡号");
+								$("#savingsCard").parent(".mui-input-row").addClass("error-input")
+							}
+							
+						}
+						else{
+							$(".inquire-card").text("请输入正确的卡号");
+							$("#savingsCard").parent(".mui-input-row").addClass("error-input")
+						}
+					}
 				})
 			})
+		})
 			
 		</script>
 	</body>

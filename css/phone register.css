@@ -1,0 +1,120 @@
+.title-div img{
+	width: 100%;
+}
+.mui-input-group .mui-input-row{
+	height: auto;
+}
+.verification-input{
+	float: left !important;
+	width: calc(62% / 2) !important;
+}
+.verification-span{
+	width: calc(62% / 2);
+	padding: 0;
+	border: none;
+	font-size:0.7rem;
+	background-color: transparent;
+ 	cursor: pointer;
+	line-height:3em;
+	color: #3f84da;
+}
+.verification-span:active{
+	color: #3f84da !important;
+	background-color: transparent !important;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	  font-size: 0.7em;
+	  color: #d3d3d3;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	  font-size: 0.7em;
+	  color: #d3d3d3;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */  
+	 font-size: 0.7em;
+	 color: #d3d3d3;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */  
+	 font-size: 0.7em;
+	 color: #d3d3d3;
+}
+.mui-input-group:before{
+	background-color: transparent;
+}
+.mui-input-group:after{
+	background-color: transparent;
+}
+.mui-input-group .mui-input-row:last-of-type:after{
+	background-color: transparent;
+}
+.mui-input-row {
+	padding:1% 0;
+}
+.mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{
+	top: 30%;
+}
+.check-input a{
+	line-height: 1.5em;
+}
+.btn-css{
+	width: 85%;
+	height: 45px;
+	background: url(../images/tx-btn.png) no-repeat;
+	background-size: 100% 100%;
+	margin-left:7.5%;
+	border: none;
+	font-size: 0.9rem;
+	margin-top:10%;
+}
+.error-input{
+	border:1px solid red;
+}
+.weui-toast_content{
+	color: white;
+}
+form{
+	width: 85%;
+	margin: 0 auto;
+	border-radius:10px ;
+	margin-top: -13%;
+}
+.check-input span{
+	display: inline-block;
+	font-size: 0.7rem;
+	transform: scale(0.7);
+}
+.check-input label a{
+	color: #519fe8;
+	font-size: 0.8em;
+}
+.check-input label span{
+	font-size: 0.8em;
+}
+.mui-input-row>label{
+	color: #230909;
+	font-size: 0.8rem;
+}
+.check-input input:before{
+	font-size: 18px !important;
+}
+@media only screen and (min-width: 100px) and (max-width: 320px) {
+	.mui-input-row>label{
+		font-size: 0.65rem;
+		padding: 13px 15px;
+	}
+}
+@media only screen and (min-width: 321px) and (max-width: 360px) {
+	.mui-input-row>label{
+		font-size: 0.7rem;
+	}
+}
+@media only screen and (min-width: 100px) and (max-width: 640px) {
+	.mui-input-row {
+		padding: 5% 0;
+	}
+}
+@media only screen and (min-width: 960px) {
+	.mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{
+		top: 34%;
+	}
+}

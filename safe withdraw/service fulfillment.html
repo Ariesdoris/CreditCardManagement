@@ -9,10 +9,10 @@
 	</head>
 	<body>
 		<!--头部-->
-		<header id="header" class="mui-bar mui-bar-nav">
+		<!--<header id="header" class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-closeempty mui-pull-left return-a"></a>
 			<h1 class="mui-title">中国银联</h1>
-		</header>
+		</header>-->
 		
 		<!--内容-->
 		<div class="big-div">
@@ -26,15 +26,15 @@
 			    </div>
 			    <div class="mui-input-row">
 			        <label>CVN2</label>
-			   	 	<input type="text" placeholder="卡背面末三位">
+			   	 	<input type="text" placeholder="卡背面末三位" id="CVN2">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>有效期</label>
-			    	<input type="text" placeholder="示例：09/15，输入0915">
+			    	<input type="text" placeholder="示例：09/15，输入0915" id="date">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>手机号</label>
-			    	<input type="text" placeholder="请输入手机号">
+			    	<input type="text" placeholder="请输入手机号" id="phone">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>验证码</label>
@@ -43,15 +43,15 @@
 			    </div>
 			    <div class="mui-input-row">
 			        <label>证件类型</label>
-			    <input type="text" value="身份证">
+			   		<input type="text" value="身份证">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>证件号</label>
-			    <input type="text" placeholder="请输入身份证号">
+			    	<input type="text" placeholder="请输入身份证号" id="identityCard">
 			    </div>
 			    <div class="mui-input-row">
 			        <label>姓名</label>
-			    <input type="text" placeholder="请输入您的姓名">
+			    	<input type="text" placeholder="请输入您的姓名">
 			    </div>
 			    <div class="btn-div">
 					<button type="button" class="mui-btn  mui-icon btn-css">确认开通</button>
@@ -62,14 +62,96 @@
 	</body>
 	<script type="text/javascript" src="../js/jquery-1.12.4.js" ></script>
 	<script src="../js/mui.min.js"></script>
-	<script type="text/javascript" src="../js/public-js.js" ></script>
 	<script type="text/javascript">
 		mui.init()
 		$(function(){
 			var navHeight=$("#header").height();//获取导航栏高度
   			$(".big-div").css("margin-top",navHeight)//设置内容不被遮盖
   			
-			affirmbtn("success card.html")
+			//获取页面input值
+			var inputNum=$("input").length;
+		
+			//判断所以input不为空
+			$("input").blur(function(){
+				if ($(this).val().length==0) {
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//手机号正则表达式
+			$("#phone").blur(function(){
+				var $phone=$("#phone").val();
+				var patrm1=/^((\+86)|(86)|(086))?1[3475689][0-9]\d{8}$/;
+				if(!patrm1.test($phone)){
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//身份证正则表达
+			$("#identityCard").blur(function(){
+				var identityCard=$("#identityCard").val();
+				var patrm1=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+				if(!patrm1.test(identityCard)){
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//CVN2正则
+			$("#CVN2").blur(function(){
+				var CVN2=$("#CVN2").val();
+				var patrm1=/^\d{3}$/;
+				if(!patrm1.test(CVN2)){
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//有效期正则
+			$("#date").blur(function(){
+				var date=$("#date").val();
+				var patrm1=/^\d{4}$/;
+				if(!patrm1.test(date)){
+					$(this).parent(".mui-input-row").addClass("error-input")
+				}
+				else{
+					$(this).parent(".mui-input-row").removeClass("error-input")
+				}
+			})
+			//全部input填完，跳转页面{
+			var inputNum=$("input").length;
+			$(".btn-css").click(function(){
+				var num=0;
+				$("input").each(function(){
+					if(!$(this).parent(".mui-input-row").hasClass("error-input")&&$(this).val().length>0){
+						num++;
+					}
+				})
+				if(num==inputNum){
+					location.href="success card.html"
+				}
+			})
+			//输完信息，按钮变色
+			$("input").on("input propertychange",function(){
+				var mark=true;
+				$("input").each(function(){
+					if($(this).val().length==0){
+						mark=false;
+					}
+				})
+				if(mark){
+					$("button").css("background-color","#007AFF");
+				}
+				else{
+					$("button").css("background-color","#ccc");
+				}
+			})
 		})
 		
 	</script>

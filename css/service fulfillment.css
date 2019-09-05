@@ -18,6 +18,7 @@
 	padding-right:1% !important;
 }
 .verification-span{
+	cursor: pointer;
 	display: inline-block;
 	line-height:2.4em;
 	color: #80a4ae;
@@ -32,4 +33,7 @@
 	margin-bottom: 2%;
 	background-color: #cccccc;
 	color: white;
+}
+.error-input{
+	border: 1px solid red;
 }
